@@ -509,6 +509,11 @@
 			label = "dfps_data_region";
 		};
 
+		disp_rdump_memory: disp_rdump_region@0xa0000000 {
+			reg = <0x0 0xA0000000 0x0 0x02300000>;
+			label = "disp_rdump_region";
+		};
+
 		dump_mem: mem_dump_region {
 			compatible = "shared-dma-pool";
 			alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
@@ -1592,7 +1597,6 @@
 		compatible = "qcom,aop-qmp-clk";
 		mboxes = <&qmp_aop 0>;
 		mbox-names = "qdss_clk";
-		qcom,clk-stop-bimc-log;
 		#clock-cells = <1>;
 	};
 
@@ -3905,21 +3909,21 @@
 };
 
 &L1P {
-	regulator-max-microvolt = <1056000>;
+	regulator-max-microvolt = <1200000>;
 	/* Reduced the headroom by 16mV for AHC */
-	qcom,min-dropout-voltage = <209000>;
+	qcom,min-dropout-voltage = <100000>;
 };
 
 &L2P {
-	regulator-max-microvolt = <1104000>;
+	regulator-max-microvolt = <1200000>;
 	/* Reduced the headroom by 16mV for AHC */
-	qcom,min-dropout-voltage = <209000>;
+	qcom,min-dropout-voltage = <100000>;
 };
 
 &L3P {
 	regulator-min-microvolt = <2800000>;
-	regulator-max-microvolt = <2800000>;
-	qcom,min-dropout-voltage = <136000>;
+	regulator-max-microvolt = <3400000>;
+	qcom,min-dropout-voltage = <200000>;
 };
 
 &L4P {
